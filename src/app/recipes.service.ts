@@ -8,12 +8,13 @@ import { RecipeDto } from './recipe-dto';
 })
 export class RecipesService {
 //https://cors-anywhere.herokuapp.com/
-  private url:string = '/api/?i=';
+  private url:string = '/api/?onlyImages=1&i=';
 
   constructor(private http:HttpClient) {
    }
 
    get(ingredients:string): Observable<RecipeDto>{
+     console.log(this.url+ingredients);
     return this.http.get(this.url+ingredients) as Observable<RecipeDto>;
    }
 }

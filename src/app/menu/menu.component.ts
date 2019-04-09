@@ -6,7 +6,7 @@ import { RecipesService } from '../recipes.service';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
 
   recipes: any;
   ingredients = [];
@@ -15,15 +15,10 @@ export class MenuComponent implements OnInit {
 
   getRecipes(f){
     this.ingredients.push(f.value.ingredient);
-
-    this.service.get(f.value.ingredient)
+    this.service.get(this.ingredients.join())
       .subscribe(response => {
         this.recipes = response;
         this.recipes = this.recipes.results;
       });
   }
-
-  ngOnInit() {
-  }
-
 }
