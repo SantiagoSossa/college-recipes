@@ -1,11 +1,30 @@
 <div class="row">
   <div class="column menu">
     <form #f="ngForm" (ngSubmit)="getRecipes(f)">
-        <input class="form-control" type="text" required ngModel name="ingredient" #ingredient="ngModel">
-        <button class="btn btn-primary" (click)="ingredient.value=''" [disabled]="!f.valid">Show Recipes</button>
+        <div class="form-group">
+          <label for="inputSearch">Search any Ingredient</label>
+          <input id="inputSearch" class="form-control" type="text" required ngModel name="ingredient" #ingredient="ngModel">
+        </div>
+        <div class="form-group">    
+          <button class="btn btn-primary" (click)="ingredient.value=''" [disabled]="!f.valid">Add Ingredient</button>
+        </div>
     </form>
+    <div class="form-group">
+      <label>Ingredients {{ingredients}}</label>
+        <table class="table">
+            <tbody>
+              <tr *ngFor="let ingredient of ingredients">
+                <td>{{ingredient}}</td>
+                <td>
+                  <i class="far fa-trash-alt"></i>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
   </div>
   <div class="column recipes">
     <recipes [recipes]="recipes"></recipes>
   </div> 
 </div>
+

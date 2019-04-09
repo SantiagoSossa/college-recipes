@@ -9,19 +9,17 @@ import { RecipesService } from '../recipes.service';
 export class MenuComponent implements OnInit {
 
   recipes: any;
-  ingredientsList: string ="";
+  ingredients = [];
 
   constructor(private service: RecipesService) { }
 
   getRecipes(f){
-    console.log(f);
-    this.ingredientsList.concat(f.value.ingredient);
+    this.ingredients.push(f.value.ingredient);
+
     this.service.get(f.value.ingredient)
       .subscribe(response => {
-        console.log(response);
         this.recipes = response;
         this.recipes = this.recipes.results;
-        console.log(this.ingredientsList);
       });
   }
 
