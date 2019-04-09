@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="column menu">
+    <form #f="ngForm" (ngSubmit)="getRecipes(f)">
+        <input class="form-control" type="text" required ngModel name="ingredient" #ingredient="ngModel">
+        <button class="btn btn-primary" (click)="ingredient.value=''" [disabled]="!f.valid">Show Recipes</button>
+    </form>
+  </div>
+  <div class="column recipes">
+    <recipes [recipes]="recipes"></recipes>
+  </div> 
+</div>

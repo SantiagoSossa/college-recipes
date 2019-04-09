@@ -1,0 +1,16 @@
+
+.column {
+    float: left;
+    padding: 10px;
+}
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+.menu {
+width: 30%;
+}
+.recipes {
+width: 70%;
+}
