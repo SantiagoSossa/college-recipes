@@ -13,12 +13,20 @@ export class MenuComponent {
 
   constructor(private service: RecipesService) { }
 
-  getRecipes(f){
+  getRecipes(f?){
+    if(f){
     this.ingredients.push(f.value.ingredient);
+    }
     this.service.get(this.ingredients.join())
       .subscribe(response => {
         this.recipes = response;
         this.recipes = this.recipes.results;
       });
+  }
+
+  deleteIngredient(ingredientDelete:string){
+    this.ingredients.splice(this.ingredients.indexOf(ingredientDelete),1);
+    this.getRecipes();
+    //return this.ingredients.filter(ingredient=> ingredient != ingredientDelete);
   }
 }

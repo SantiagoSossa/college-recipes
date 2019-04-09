@@ -1,4 +1,3 @@
-
 .column {
     float: left;
     padding: 10px;
@@ -7,10 +6,16 @@
 content: "";
 display: table;
 clear: both;
+height:100vh;
 }
 .menu {
 width: 30%;
+background-color: rgb(247, 177, 96);
 }
 .recipes {
 width: 70%;
+background-color: rgb(240, 230, 219);
+}
+.fa-trash-alt{
+    cursor: pointer;
 }
