@@ -1,7 +1,9 @@
 <div class="card-deck recipe-group">
     <div class="card text-center" *ngFor="let recipe of recipes">
-        <div class="card-body card-img-overlay ">
+            <div class="card-header bg-transparent">{{recipe.title}}</div>
+        <div class="card-body">
             <img src="{{recipe.thumbnail}}"alt="">
         </div>
+        <div class="card-footer bg-transparent">{{recipe.ingredients}}</div>
     </div>
 </div>

@@ -3,19 +3,24 @@
     padding: 10px;
 }
 .row:after {
-content: "";
-display: table;
-clear: both;
-height:100vh;
+    content: "";
+    display: table;
+    clear: both;
+    height:100vh;
 }
 .menu {
-width: 30%;
-background-color: rgb(247, 177, 96);
+    width: 30%;
+    background-color: rgb(247, 177, 96);
 }
 .recipes {
-width: 70%;
-background-color: rgb(240, 230, 219);
+    width: 70%;
+    background-color: rgb(240, 230, 219);
 }
 .fa-trash-alt{
     cursor: pointer;
+    color: darkred;
+}
+
+table{
+    background-color: rgb(240, 230, 219);
 }
