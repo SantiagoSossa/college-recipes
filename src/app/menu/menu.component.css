@@ -1,3 +1,5 @@
+
+
 .column {
     float: left;
     padding: 10px;
@@ -10,7 +12,7 @@
 }
 .menu {
     width: 30%;
-    background-color: rgb(247, 177, 96);
+    background-color: rgb(248, 78, 48);
 }
 .recipes {
     width: 70%;
@@ -24,3 +26,4 @@
 table{
     background-color: rgb(240, 230, 219);
 }
+    
