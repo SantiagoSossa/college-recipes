@@ -1,0 +1,25 @@
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { FavoriteRecipesComponent } from './favorite-recipes.component';
+
+describe('FavoriteRecipesComponent', () => {
+  let component: FavoriteRecipesComponent;
+  let fixture: ComponentFixture<FavoriteRecipesComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ FavoriteRecipesComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(FavoriteRecipesComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

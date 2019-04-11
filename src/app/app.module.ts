@@ -1,3 +1,5 @@
+import { FavoriteRecipesService } from './favorite-recipes.service';
+import { AuthenticationService } from './authentication.service';
 import { RecipesComponent } from './recipes/recipes.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -16,6 +18,8 @@ import { RecipesService } from './recipes.service';
 import { MenuComponent } from './menu/menu.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { UserService } from './user.service';
+import { FavoriteRecipesComponent } from './favorite-recipes/favorite-recipes.component';
 
 const routes: Routes =[
   {path: '', component: MenuComponent},
@@ -28,7 +32,8 @@ const routes: Routes =[
     NavBarComponent,
     RecipesComponent,
     MenuComponent,
-    LoginComponent
+    LoginComponent,
+    FavoriteRecipesComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,10 @@ const routes: Routes =[
     RouterModule.forRoot(routes)
   ],
   providers: [
-    RecipesService
+    RecipesService,
+    AuthenticationService,
+    UserService,
+    FavoriteRecipesService
   ],
   bootstrap: [AppComponent]
 })

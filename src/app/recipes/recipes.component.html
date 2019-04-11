@@ -3,6 +3,7 @@
             <div class="card-header bg-transparent">{{recipe.title}}</div>
         <div class="card-body">
             <img src="{{recipe.thumbnail}}"alt="">
+            <button class="btn btn-danger" (click)="save(recipe)">Fav</button>
         </div>
         <div class="card-footer bg-transparent">{{recipe.ingredients}}</div>
     </div>

@@ -9,8 +9,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AuthenticationService {
 
+  username$: Observable<firebase.User>;
+
   constructor(private afAuth: AngularFireAuth, 
-    private route: ActivatedRoute,) { }
+    private route: ActivatedRoute,) { 
+      this.username$ = afAuth.authState;
+    }
 
   login(){
     // let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';

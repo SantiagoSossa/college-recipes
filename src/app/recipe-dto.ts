@@ -1,6 +1,7 @@
 export interface RecipeDto {
-    title:string;
-    ingredients:string;
-    recipeLink:string;
-    thumbnail:string;
+    user: string;
+    title: string;
+    ingredients: string;
+    href: string;
+    thumbnail: string;
 }
