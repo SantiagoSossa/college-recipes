@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AngularFireModule } from '@angular/fire';
@@ -23,7 +24,7 @@ import { FavoriteRecipesComponent } from './favorite-recipes/favorite-recipes.co
 
 const routes: Routes =[
   {path: '', component: MenuComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'my-recipes', component: FavoriteRecipesComponent}
 ]
 
 @NgModule({
@@ -39,6 +40,7 @@ const routes: Routes =[
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
     AngularFontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
@@ -49,7 +51,8 @@ const routes: Routes =[
     RecipesService,
     AuthenticationService,
     UserService,
-    FavoriteRecipesService
+    FavoriteRecipesService,
+    LoginComponent
   ],
   bootstrap: [AppComponent]
 })

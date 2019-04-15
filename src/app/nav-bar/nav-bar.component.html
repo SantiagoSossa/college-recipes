@@ -1,13 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-light nv-color">
+<nav class="navbar navbar-light nv-color justify-content-between">
   <a class="navbar-brand" href="#">College Recipes</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <button
+    *ngIf="!appUser" 
+    (click)="login()"
+    class="btn btn-light">
+    Login With Google 
+    <i class="fab fa-google"></i>
   </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/login">Login</a>
-      </li>
-    </ul>
+  <div *ngIf="appUser" ngbDropdown class="d-inline-block">
+    <button class="btn btn-light" id="dropdownBasic1" ngbDropdownToggle>{{appUser.name}}</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+      <button ngbDropdownItem routerLink="/my-recipes">My Recipes</button>
+      <button ngbDropdownItem (click)="logout()">Logout</button>
+    </div>
   </div>
 </nav>
