@@ -1,9 +1,10 @@
+import { RecipesInterceptor } from './recipes.interceptor';
 import { FavoriteRecipesService } from './favorite-recipes.service';
 import { AuthenticationService } from './authentication.service';
 import { RecipesComponent } from './recipes/recipes.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
@@ -52,7 +53,11 @@ const routes: Routes =[
     AuthenticationService,
     UserService,
     FavoriteRecipesService,
-    LoginComponent
+    LoginComponent, {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RecipesInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

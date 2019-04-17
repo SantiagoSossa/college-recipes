@@ -13,7 +13,6 @@ export class FavoriteRecipesService {
   constructor(private db: AngularFirestore) { }
 
   save(user: firebase.User, recipe: RecipeDto) {
-    this.get(); 
     this.db.collection('recipes').add({
       user: user.uid,
       title: recipe.title,
@@ -23,10 +22,7 @@ export class FavoriteRecipesService {
     });
   }
 
-  get(){
-    this.db.collection('/recipes').snapshotChanges()
-    .subscribe(recipes => {
-    }) 
-  
+  get(): Observable<RecipeDto[]>{
+    return this.db.collection('recipes').valueChanges() as Observable<RecipeDto[]>;  
   }
 }
