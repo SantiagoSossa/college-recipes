@@ -1,3 +1,4 @@
+import { RecipeDto } from './../recipe-dto';
 import { AuthenticationService } from './../authentication.service';
 import { UserService } from './../user.service';
 import { FavoriteRecipesService } from './../favorite-recipes.service';
@@ -8,21 +9,27 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './favorite-recipes.component.html',
   styleUrls: ['./favorite-recipes.component.css']
 })
-export class FavoriteRecipesComponent  {
+export class FavoriteRecipesComponent implements OnInit {
 
+  uid:string;
+  recipes: any;
 
   constructor(private recipeService: FavoriteRecipesService, private user: UserService,
-    private auth: AuthenticationService) { }
+    private auth: AuthenticationService) { 
 
+    }
+
+    ngOnInit(){
+      this.recipes = this.recipeService.getFavoriteRecipes();
+      console.log(" siiiyyyuu", this.recipes);
+    }
   
-  getAll(){
-    this.recipeService.get().subscribe(recipes => {
-      console.log("- ",recipes);
-    }); 
+  getRecipes(){
+    this.recipeService.get().subscribe(recipes => recipes); 
   }
 
   getUser(){
-    this.auth.username$.subscribe(user => user.uid);
+    return this.auth.username$.subscribe(user => this.uid = user.uid);
   }
   
 
