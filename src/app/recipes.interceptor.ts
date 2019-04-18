@@ -7,7 +7,6 @@ export class RecipesInterceptor implements HttpInterceptor{
         const httpsReq = req.clone({
             url: req.url.replace("https://college-recipes.firebaseapp.com", environment.API_URL)
           });
-          console.log("hola ",httpsReq);
           return next.handle(httpsReq);
     }
 }

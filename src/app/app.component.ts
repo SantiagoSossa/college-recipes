@@ -13,11 +13,6 @@ export class AppComponent {
   constructor(private userService: UserService, private auth: AuthenticationService, router: Router){
     auth.username$.subscribe(user => {
       if(user) {
-        console.log("the user", user);
-        userService.get(user.uid)
-        .subscribe(appUser =>{
-          console.log("el user ",appUser);
-        });
         userService.save(user);
 
         let returnUrl = localStorage.getItem('returnUrl');

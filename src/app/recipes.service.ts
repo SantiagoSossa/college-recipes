@@ -14,7 +14,6 @@ export class RecipesService {
    }
 
    get(ingredients:string): Observable<RecipeDto>{
-     console.log(this.url+ingredients);
     return this.http.get(this.url+ingredients) as Observable<RecipeDto>;
    }
    

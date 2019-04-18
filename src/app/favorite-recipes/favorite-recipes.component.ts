@@ -21,7 +21,6 @@ export class FavoriteRecipesComponent implements OnInit {
 
     ngOnInit(){
       this.recipes = this.recipeService.getFavoriteRecipes();
-      console.log(" siiiyyyuu", this.recipes);
     }
   
   getRecipes(){
