@@ -11,6 +11,7 @@ import { RecipesService } from '../recipes.service';
 export class RecipesComponent {
 
   @Input() recipes: any;
+  @Input() favButton: boolean;
 
   constructor(private service: RecipesService, 
     private recipeFavService: FavoriteRecipesService, 
