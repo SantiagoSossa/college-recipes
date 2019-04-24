@@ -3,8 +3,11 @@
             <div class="card-header bg-transparent">{{recipe.title}}</div>
         <div class="card-body">
             <img src="{{recipe.thumbnail}}"alt="">
-            <button *ngIf="favButton" class="btn btn-danger" (click)="save(recipe)">Fav</button>
-        </div>
+                <div>
+                    <i title="Add to favorites" *ngIf="favButton" class="fas fa-heart" (click)="save(recipe)"></i>
+                    <a href="{{recipe.href}}" target="_blank"><i title="Go to recipe" class="fas fa-utensils"></i></a> 
+                </div>
+            </div>
         <div class="card-footer bg-transparent">{{recipe.ingredients}}</div>
     </div>
 </div>
