@@ -16,20 +16,24 @@ export class FavoriteRecipesComponent implements OnInit {
 
   constructor(private recipeService: FavoriteRecipesService, private user: UserService,
     private auth: AuthenticationService) { 
-
+      this.auth.username$.subscribe(user => this.uid = (user)?user.uid : "");
     }
 
-    ngOnInit(){
-      this.recipes = this.recipeService.getFavoriteRecipes();
-    }
+  ngOnInit(){
+    if(this.uid){
+      this.recipeService.getRecipes(this.uid).snapshotChanges()
+      .subscribe((recipe) => {
+        this.recipes = recipe.map(key =>{
+          const data = key.payload.doc.data();
+          const id = key.payload.doc.id;
+          return {id,...data};
+        });
+      });;
+   }
+  }
   
   getRecipes(){
     this.recipeService.get().subscribe(recipes => recipes); 
   }
-
-  getUser(){
-    return this.auth.username$.subscribe(user => this.uid = user.uid);
-  }
   
-
 }

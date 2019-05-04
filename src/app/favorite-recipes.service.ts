@@ -4,8 +4,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 import { RecipeDto } from './recipe-dto';
-import { resolve } from 'url';
-import { filter } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +12,7 @@ export class FavoriteRecipesService {
 
   recetas=[];
   recetasFiltered = [];
+  keys$;
 
   constructor(private db: AngularFirestore, private auth: AuthenticationService) { }
 
@@ -27,24 +26,12 @@ export class FavoriteRecipesService {
     });
   }
 
-  getRecipes(){
-    this.auth.username$.subscribe(user =>{
-      this.db.collection('recipes').valueChanges()
-      .subscribe((recipes) => {
-        this.recetas = recipes;
-        this.recetas.filter((reci:RecipeDto) => {
-          if(user.uid == reci.user)
-          {
-            this.recetasFiltered.push(reci);
-          }
-        });
-      });
-    });
+  getRecipes(user){
+    return this.db.collection('recipes',ref => ref.where('user','==',user));
   }
 
-  getFavoriteRecipes(){
-    this.getRecipes();
-    return this.recetasFiltered;
+  delete(recipe){
+    this.db.collection('recipes').doc(recipe).delete();
   }
 
   get(): Observable<RecipeDto[]>{
