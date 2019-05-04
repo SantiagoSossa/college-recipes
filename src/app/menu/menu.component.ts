@@ -27,6 +27,5 @@ export class MenuComponent {
   deleteIngredient(ingredientDelete:string){
     this.ingredients.splice(this.ingredients.indexOf(ingredientDelete),1);
     this.getRecipes();
-    //return this.ingredients.filter(ingredient=> ingredient != ingredientDelete);
   }
 }

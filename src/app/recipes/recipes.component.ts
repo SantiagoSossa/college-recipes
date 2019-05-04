@@ -12,10 +12,13 @@ export class RecipesComponent {
 
   @Input() recipes: any;
   @Input() favButton: boolean;
+  @Input() deleteButton: boolean;
 
-  constructor(private service: RecipesService, 
+  constructor(
     private recipeFavService: FavoriteRecipesService, 
-    private auth: AuthenticationService){}
+    private auth: AuthenticationService){
+      
+    }
 
   save(recipe){
     this.auth.username$.subscribe(user => {
@@ -25,5 +28,8 @@ export class RecipesComponent {
     });
   }
 
+  delete(recipe){
+    this.recipeFavService.delete(recipe.id);
+  }
 
 }
