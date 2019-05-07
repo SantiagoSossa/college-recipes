@@ -11,7 +11,7 @@
     <button class="btn btn-light" id="dropdownBasic1" ngbDropdownToggle>{{appUser.name}}</button>
     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
       <button ngbDropdownItem routerLink="/my-recipes">My Recipes</button>
-      <button ngbDropdownItem (click)="logout()">Logout</button>
+      <button ngbDropdownItem routerLink="/" (click)="logout()">Logout</button>
     </div>
   </div>
 </nav>

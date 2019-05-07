@@ -22,10 +22,11 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { UserService } from './user.service';
 import { FavoriteRecipesComponent } from './favorite-recipes/favorite-recipes.component';
+import { AuthGuardService } from './auth-guard.service';
 
 const routes: Routes =[
   {path: '', component: MenuComponent},
-  {path: 'my-recipes', component: FavoriteRecipesComponent}
+  {path: 'my-recipes', component: FavoriteRecipesComponent, canActivate: [AuthGuardService]}
 ]
 
 @NgModule({
@@ -51,6 +52,7 @@ const routes: Routes =[
   providers: [
     RecipesService,
     AuthenticationService,
+    AuthGuardService,
     UserService,
     FavoriteRecipesService,
     LoginComponent, {
