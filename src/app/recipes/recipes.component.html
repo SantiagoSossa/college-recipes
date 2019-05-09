@@ -4,7 +4,7 @@
         <div class="card-body">
             <img src="{{recipe.thumbnail}}"alt="">
                 <div>
-                    <i title="Add to favorites" *ngIf="favButton" class="fas fa-heart" (click)="save(recipe)"></i>
+                    <i title="Add to favorites" *ngIf="favButton" class="fas fa-heart" [ngStyle]="{'color': true?'gray':'firebrick'}" (click)="save(recipe)"></i>
                     <i title="Delete recipe" *ngIf="deleteButton" class="far fa-trash-alt" (click)="delete(recipe)"></i>
                     <a href="{{recipe.href}}" target="_blank"><i title="Go to recipe" class="fas fa-utensils"></i></a> 
                 </div>

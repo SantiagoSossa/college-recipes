@@ -28,7 +28,7 @@ export class FavoriteRecipesComponent implements OnInit {
           const id = key.payload.doc.id;
           return {id,...data};
         });
-      });;
+      });
    }
   }
   
