@@ -1,7 +1,6 @@
 import { AuthenticationService } from './../authentication.service';
 import { FavoriteRecipesService } from './../favorite-recipes.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { RecipesService } from '../recipes.service';
 
 @Component({
   selector: 'recipes',
@@ -61,6 +60,10 @@ export class RecipesComponent implements OnInit{
           }
       });
     }
+  }
+
+  heartColor(recipe){
+    return this.isAlreadyFav2(recipe)!=0;
   }
 
 }
