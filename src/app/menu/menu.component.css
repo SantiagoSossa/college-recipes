@@ -8,12 +8,18 @@
     clear: both;
     height:100vh;
 }
+.row{
+    margin: 0;
+}
 .menu {
-    width: 30%;
+    position: static;
+    width: 100%;
+    padding: 10px 20px;
     background-color: rgb(248, 78, 48);
 }
 .recipes {
-    width: 70%;
+    position: static;
+    padding: 10px 20px;
     background-color: rgb(240, 230, 219);
 }
 table{

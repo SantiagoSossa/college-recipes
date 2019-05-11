@@ -1,11 +1,16 @@
 import { AuthenticationService } from './../authentication.service';
 import { FavoriteRecipesService } from './../favorite-recipes.service';
 import { Component, Input, OnInit } from '@angular/core';
+import { trigger, transition, useAnimation } from '@angular/animations';
+import { bounce } from 'ng-animate';
 
 @Component({
   selector: 'recipes',
   templateUrl: './recipes.component.html',
-  styleUrls: ['./recipes.component.css']
+  styleUrls: ['./recipes.component.css'],
+  animations: [
+    trigger('bounce', [transition('* => *', useAnimation(bounce))])
+  ],
 })
 export class RecipesComponent implements OnInit{
 
@@ -14,6 +19,7 @@ export class RecipesComponent implements OnInit{
   @Input() deleteButton: boolean;
   favRecipes;
   user;
+  bounce: any;
 
   constructor(
     private recipeFavService: FavoriteRecipesService, 

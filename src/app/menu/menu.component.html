@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="column menu">
+  <div class="column menu col-md-3">
     <form #f="ngForm" (ngSubmit)="getRecipes(f)">
         <div class="form-group">
           <label for="inputSearch">Search any Ingredient</label>
@@ -23,7 +23,7 @@
         </table>
     </div>
   </div>
-  <div class="column recipes">
+  <div class="column recipes col-md-9">
     <recipes [recipes]="recipes" [favButton]="true"></recipes>
   </div> 
 </div>

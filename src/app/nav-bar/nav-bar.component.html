@@ -1,17 +1,25 @@
-<nav class="navbar navbar-light nv-color justify-content-between">
-  <a class="navbar-brand" href="#">College Recipes</a>
-  <button
-    *ngIf="!appUser" 
-    (click)="login()"
-    class="btn btn-light">
-    Login With Google 
-    <i class="fab fa-google"></i>
-  </button>
-  <div *ngIf="appUser" ngbDropdown class="d-inline-block">
-    <button class="btn btn-light" id="dropdownBasic1" ngbDropdownToggle>{{appUser.name}}</button>
-    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-      <button ngbDropdownItem routerLink="/my-recipes">My Recipes</button>
-      <button ngbDropdownItem routerLink="/" (click)="logout()">Logout</button>
-    </div>
-  </div>
-</nav>
+<div id="header">
+    <nav class="navbar navbar-light nv-color justify-content-between">
+      <a class="navbar-brand" href="#">College Recipes</a>
+      <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
+        <button
+          *ngIf="!appUser" 
+          (click)="login()"
+          class="btn btn-light">
+          Login With Google 
+          <i class="fab fa-google"></i>
+        </button>
+        <div *ngIf="appUser" ngbDropdown class="d-inline-block">
+          <button class="btn btn-light" id="dropdownBasic1" ngbDropdownToggle>{{appUser.name}}</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem routerLink="/my-recipes">My Recipes</button>
+            <button ngbDropdownItem routerLink="/" (click)="logout()">Logout</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+</div>

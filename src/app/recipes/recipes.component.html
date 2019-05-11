@@ -1,5 +1,5 @@
 <div class="card-deck recipe-group">
-    <div class="card text-center" *ngFor="let recipe of recipes">
+    <div class="card text-center" [@bounce]="bounce" *ngFor="let recipe of recipes">
             <div class="card-header bg-transparent">{{recipe.title}}</div>
         <div class="card-body">
             <img src="{{recipe.thumbnail}}"alt="">
@@ -12,3 +12,4 @@
         <div class="card-footer bg-transparent">{{recipe.ingredients}}</div>
     </div>
 </div>
+

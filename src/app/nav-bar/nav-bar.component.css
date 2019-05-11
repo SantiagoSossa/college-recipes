@@ -1,4 +1,13 @@
 .nv-color{
-    background-color: rgb(223, 61, 50);
-    width: 100vw;
+  padding: 10px 20px;
+}
+
+#header{
+  background-color: rgb(223, 61, 50);
+  padding: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  transition: all 0.5s;
+  z-index: 997;
 }

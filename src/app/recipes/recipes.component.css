@@ -31,8 +31,10 @@ img{
 
 .fa-heart{
     color: firebrick;
+    float:left;
 }
 
 .fa-utensils{
     color: teal;
+    float:left;
 }
