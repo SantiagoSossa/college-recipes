@@ -1,11 +1,11 @@
 <div id="header">
-    <nav class="navbar navbar-light nv-color justify-content-between">
+    <nav class="navbar navbar-light navbar-expand-sm nv-color">
       <a class="navbar-brand" href="#">College Recipes</a>
-      <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
+      <button class="navbar-toggler navbar-toggler-right burger-show" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
+      <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
         <button
           *ngIf="!appUser" 
           (click)="login()"
