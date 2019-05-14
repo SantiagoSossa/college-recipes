@@ -2,7 +2,7 @@
   <div class="column menu col-md-3">
     <form #f="ngForm" (ngSubmit)="getRecipes(f)">
         <div class="form-group">
-          <label for="inputSearch">Search any Ingredient</label>
+          <h5 for="inputSearch">Search any Ingredient</h5>
           <input id="inputSearch" class="form-control" type="text" required ngModel name="ingredient" #ingredient="ngModel">
         </div>
         <div class="form-group">    
@@ -10,7 +10,7 @@
         </div>
     </form>
     <div class="form-group">
-      <label>Ingredients {{ingredients}}</label>
+      <h5>Ingredients</h5>
         <ul class="list-group">
             <li class="list-group-item list-group-item-secondary" *ngFor="let ingredient of ingredients">
                 {{ingredient}}

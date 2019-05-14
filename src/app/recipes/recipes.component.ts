@@ -40,8 +40,8 @@ export class RecipesComponent implements OnInit{
     return this.showIngredients[index]==true;
   }
 
-  getList(igredients:string){
-    return igredients.split(",");
+  getList(ingredients:string){
+    return ingredients.split(",");
   }
 
   showIng(index){

@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="card col-md-4 col-sm-6" [ngClass]="{'col-lg-3': userRecipes}" [@bounceIn]="bounceIn" *ngFor="let recipe of recipes; index as i">
+    <div class="card col-lg-4 col-md-6 col-sm-6" [ngClass]="{'col-lg-3': userRecipes}" [@bounceIn]="bounceIn" *ngFor="let recipe of recipes; index as i">
         <img class="card-img-top" src="{{recipe.thumbnail}}" alt="Card image cap">
         <div class="buttons">
                 <i title="Add to favorites" *ngIf="favButton" class="fas fa-heart" [ngStyle]="{'color': heartColor(recipe)?'white':'gray','background-color':heartColor(recipe)?'firebrick':'lightgray'}" (click)="save(recipe)"></i>
@@ -8,7 +8,7 @@
             </div>
         <div class="card-body">
             <h5 class="card-title">
-                <a>{{recipe.title}}</a>
+                <a>{{recipe.title | largeText}}</a>
             </h5>
             <hr>
             <h5 (click)="showIng(i)">
@@ -22,9 +22,8 @@
             </h5>
             <ul id="ingredientsList" 
                 class="list-group" 
-                *ngIf="showIngSredients && showIngredientList(i)">
-                <li class="list-group-item list-group-item-secondary" 
-                *ngFor="let ingredient of getList(recipe.ingredients)">
+                *ngIf="showIngredients && showIngredientList(i)">
+                <li class="list-group-item list-group-item-secondary" *ngFor="let ingredient of getList(recipe.ingredients)">
                     {{ingredient}}
                 </li>
             </ul>

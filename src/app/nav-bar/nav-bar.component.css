@@ -3,7 +3,7 @@
 }
 
 #header{
-  background-color: rgb(223, 61, 50);
+  background-color: firebrick;
   padding: 0;
   left: 0;
   top: 0;
@@ -12,3 +12,10 @@
   z-index: 997;
   width: 100%;
 }
+
+.navbar-brand{
+  font-weight: bold;
+}
+
+/* red #CD352C
+blue #13203C */

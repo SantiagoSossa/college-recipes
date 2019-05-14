@@ -24,6 +24,7 @@ import { LoginComponent } from './login/login.component';
 import { UserService } from './user.service';
 import { FavoriteRecipesComponent } from './favorite-recipes/favorite-recipes.component';
 import { AuthGuardService } from './auth-guard.service';
+import { LargeTextPipe } from './large-text.pipe';
 
 const routes: Routes =[
   {path: '', component: MenuComponent},
@@ -37,7 +38,8 @@ const routes: Routes =[
     RecipesComponent,
     MenuComponent,
     LoginComponent,
-    FavoriteRecipesComponent
+    FavoriteRecipesComponent,
+    LargeTextPipe
   ],
   imports: [
     BrowserModule,
