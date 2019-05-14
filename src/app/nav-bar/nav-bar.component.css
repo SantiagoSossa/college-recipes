@@ -3,7 +3,7 @@
 }
 
 #header{
-  background-color: firebrick;
+  background-color: #13203C;
   padding: 0;
   left: 0;
   top: 0;
@@ -15,6 +15,16 @@
 
 .navbar-brand{
   font-weight: bold;
+  margin: 0;
+}
+
+.navbar-icon{
+  width: 100%;
+  height: 100%;
+}
+
+.btn{
+  margin-left: 15px
 }
 
 /* red #CD352C
