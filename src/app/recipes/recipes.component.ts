@@ -2,14 +2,14 @@ import { AuthenticationService } from './../authentication.service';
 import { FavoriteRecipesService } from './../favorite-recipes.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { trigger, transition, useAnimation } from '@angular/animations';
-import { bounce } from 'ng-animate';
+import { bounceIn } from 'ng-animate';
 
 @Component({
   selector: 'recipes',
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.css'],
   animations: [
-    trigger('bounce', [transition('* => *', useAnimation(bounce))])
+    trigger('bounceIn', [transition('* => *', useAnimation(bounceIn))])
   ],
 })
 export class RecipesComponent implements OnInit{
@@ -17,9 +17,11 @@ export class RecipesComponent implements OnInit{
   @Input() recipes: any;
   @Input() favButton: boolean;
   @Input() deleteButton: boolean;
+  @Input() userRecipes: boolean;
   favRecipes;
   user;
-  bounce: any;
+  bounceIn: any;
+  showIngredients = [];
 
   constructor(
     private recipeFavService: FavoriteRecipesService, 
@@ -32,6 +34,19 @@ export class RecipesComponent implements OnInit{
       this.user = (user)?user : "";
       this.isAlreadyFavorite();
     });
+  }
+
+  showIngredientList(index){
+    return this.showIngredients[index]==true;
+  }
+
+  getList(igredients:string){
+    return igredients.split(",");
+  }
+
+  showIng(index){
+    this.showIngredients[index]=!this.showIngredients[index];
+    console.log(this.showIngredients[index]);
   }
 
   save(recipe){

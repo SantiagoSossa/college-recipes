@@ -1,15 +1,35 @@
-<div class="card-deck recipe-group">
-    <div class="card text-center" [@bounce]="bounce" *ngFor="let recipe of recipes">
-            <div class="card-header bg-transparent">{{recipe.title}}</div>
-        <div class="card-body">
-            <img src="{{recipe.thumbnail}}"alt="">
-                <div>
-                    <i title="Add to favorites" *ngIf="favButton" class="fas fa-heart" [ngStyle]="{'color': heartColor(recipe)?'gray':'firebrick'}" (click)="save(recipe)"></i>
-                    <i title="Delete recipe" *ngIf="deleteButton" class="far fa-trash-alt" (click)="delete(recipe)"></i>
-                    <a href="{{recipe.href}}" target="_blank"><i title="Go to recipe" class="fas fa-utensils"></i></a> 
-                </div>
+<div class="row">
+    <div class="card col-md-4 col-sm-6" [ngClass]="{'col-lg-3': userRecipes}" [@bounceIn]="bounceIn" *ngFor="let recipe of recipes; index as i">
+        <img class="card-img-top" src="{{recipe.thumbnail}}" alt="Card image cap">
+        <div class="buttons">
+                <i title="Add to favorites" *ngIf="favButton" class="fas fa-heart" [ngStyle]="{'color': heartColor(recipe)?'white':'gray','background-color':heartColor(recipe)?'firebrick':'lightgray'}" (click)="save(recipe)"></i>
+                <i title="Delete recipe" *ngIf="deleteButton" class="far fa-trash-alt" (click)="delete(recipe)"></i>
+                <a href="{{recipe.href}}" target="_blank"><i title="Go to full recipe" class="fas fa-utensils"></i></a> 
             </div>
-        <div class="card-footer bg-transparent">{{recipe.ingredients}}</div>
+        <div class="card-body">
+            <h5 class="card-title">
+                <a>{{recipe.title}}</a>
+            </h5>
+            <hr>
+            <h5 (click)="showIng(i)">
+                Ingredients
+                <i class="fas" 
+                [ngStyle]="{'background-color': 'lightgray'}" 
+                [ngClass]="{
+                    'fa-chevron-up':showIngredients[i],
+                    'fa-chevron-down' :!showIngredients[i]}">
+                </i>
+            </h5>
+            <ul id="ingredientsList" 
+                class="list-group" 
+                *ngIf="showIngSredients && showIngredientList(i)">
+                <li class="list-group-item list-group-item-secondary" 
+                *ngFor="let ingredient of getList(recipe.ingredients)">
+                    {{ingredient}}
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
+
 

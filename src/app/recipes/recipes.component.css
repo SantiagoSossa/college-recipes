@@ -1,19 +1,19 @@
 img{
-    height: 50%;
-    width: 50%; 
-    margin: 0px;
+    height: 200px;
 }
 .recipe-group{
     display: flex;
 }
 
-
 .card{
-    min-height: 250px;
-    min-width: 250px; 
-    max-height: 350px;
-    max-width: 350px; 
-    margin: 2%;
+  border: 10px solid transparent;
+  border-top: 20px solid transparent;
+  background-clip:padding-box;
+  /* max-height: 250px; */
+} 
+
+.card-title{
+    height: 100px;
 }
 
 .card-header{
@@ -24,17 +24,9 @@ img{
     height: 35%;
 }
 
-.fas{
-    cursor: pointer;
-    margin: 5%;
+.buttons{
+    position: absolute;
+    right: 0;
+    top: 10px;
 }
 
-.fa-heart{
-    color: firebrick;
-    float:left;
-}
-
-.fa-utensils{
-    color: teal;
-    float:left;
-}
