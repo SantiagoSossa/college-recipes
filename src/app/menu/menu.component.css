@@ -11,6 +11,9 @@
 .row{
     margin: 0;
 }
+.btn{
+    width: 100%;
+}
 .menu {
     position: static;
     width: 100%;
@@ -26,3 +29,12 @@ table{
     background-color: rgb(240, 230, 219);
 }
     
+i.far{
+    position: absolute;
+    margin: 0;
+    right: 5px;
+    bottom: 10px;
+}
+i.fas{
+    margin: 0;
+}

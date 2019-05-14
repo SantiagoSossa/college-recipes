@@ -6,21 +6,17 @@
           <input id="inputSearch" class="form-control" type="text" required ngModel name="ingredient" #ingredient="ngModel">
         </div>
         <div class="form-group">    
-          <button class="btn btn-light" [disabled]="!f.valid">Add Ingredient <i class="fas fa-plus"></i></button>
+            <button class="btn btn-light" [disabled]="!f.valid">Add Ingredient <i class="fas fa-plus"></i></button>
         </div>
     </form>
     <div class="form-group">
       <label>Ingredients {{ingredients}}</label>
-        <table class="table">
-            <tbody>
-              <tr *ngFor="let ingredient of ingredients">
-                <td>{{ingredient}}</td>
-                <td>
-                  <i (click)="deleteIngredient(ingredient)" class="far fa-trash-alt"></i>
-                </td>
-              </tr>
-            </tbody>
-        </table>
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-secondary" *ngFor="let ingredient of ingredients">
+                {{ingredient}}
+                <i (click)="deleteIngredient(ingredient)" class="far fa-trash-alt"></i>
+            </li>
+        </ul>
     </div>
   </div>
   <div class="column recipes col-md-9">
