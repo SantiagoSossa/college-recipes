@@ -46,7 +46,6 @@ export class RecipesComponent implements OnInit{
 
   showIng(index){
     this.showIngredients[index]=!this.showIngredients[index];
-    console.log(this.showIngredients[index]);
   }
 
   save(recipe){

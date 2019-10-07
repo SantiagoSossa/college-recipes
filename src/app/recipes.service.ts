@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment.prod';
   providedIn: 'root'
 })
 export class RecipesService {
-  private url:string = 'https://cors.io/?'+environment.API_URL+'/api/?onlyImages=1&i=';
+  private url:string = 'https://cors-anywhere.herokuapp.com/'+environment.API_URL+'/api/?onlyImages=1&i=';
 
   constructor(private http:HttpClient) {
    }
